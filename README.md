@@ -12,6 +12,11 @@ Para os ícones e fontes, utilizei a API do Google: `Google Fonts`.
 -   HTML
 -   CSS
 
+## 💁‍♀️ Atribuição
+
+O favicon da página foi encontrado em:
+<a href="https://iconscout.com/icons/timer" target="_blank">Timer Icon</a> by <a href="https://iconscout.com/contributors/jemismali" target="_blank">Jemis Mali</a>
+
 ## 🤝 Feedbacks
 
 Se você tiver opiniões em como eu posso melhorar essa aplicação, por favor, me mande uma mensagem pelo [Linkedin](https://linkedin.com/in/raiane-oliveira-dev) 
