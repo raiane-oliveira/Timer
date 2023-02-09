@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    color: white;
+    background-color: #131215;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#time {
+    font: 500 10rem "Poppins", sans-serif;
+}
+
+.control-timer {
+    background-color: #182B35;
+    padding: 1rem;
+    border-radius: 4rem;
+
+    display: flex;
+    gap: 1.5rem;
+}
+
+.control-timer button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.start-timer-button span {
+    color: #38D4FF;
+    font-size: 2.5rem;
+}
+
+.reset-timer-button span {
+    color: white;
+    font-size: 2.5rem;
+}
