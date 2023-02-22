@@ -14,8 +14,8 @@ startTimerButton.addEventListener("click", startTimer);
 
 resetTimerButton.addEventListener("click", () => {
     stopTimer();
-    timeHeading.innerHTML = `${MINUTES}:00`;
     restartTimer();
+    timeHeading.innerHTML = `${MINUTES}:00`;
 });
 
 function startTimer() {
@@ -64,5 +64,4 @@ function stopTimer() {
 function restartTimer() {
     timerMinutes = MINUTES;
     timerSeconds = SECONDS;
-    timeFormated = "";
 }
