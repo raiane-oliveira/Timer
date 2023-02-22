@@ -13,9 +13,15 @@ const startIconTimer = document.querySelector(".start-icon");
 startTimerButton.addEventListener("click", startTimer);
 
 resetTimerButton.addEventListener("click", () => {
-    stopTimer();
     restartTimer();
     timeHeading.innerHTML = `${MINUTES}:00`;
+});
+
+document.addEventListener("keydown", (event) => {
+    // When space key is clicked
+    if (event.key === " ") {
+        startTimer();
+    }
 });
 
 function startTimer() {
@@ -62,6 +68,7 @@ function stopTimer() {
 }
 
 function restartTimer() {
+    stopTimer();
     timerMinutes = MINUTES;
     timerSeconds = SECONDS;
 }
