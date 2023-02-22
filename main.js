@@ -11,10 +11,6 @@ const resetTimerButton = document.querySelector(".reset-timer-button");
 const startIconTimer = document.querySelector(".start-icon");
 
 startTimerButton.addEventListener("click", () => {
-    if (timerMinutes === 0 && timerSeconds === 0) {
-        restartTimer();
-    }
-
     timeHeading.classList.toggle("running");
     startIconTimer.innerText = "stop";
 
@@ -35,8 +31,10 @@ resetTimerButton.addEventListener("click", () => {
 function decreaseTimer() {
     timerSeconds--;
 
-    if (timerSeconds === 0 && timerMinutes === 0) stopTimer();
-    else if (timerSeconds === 59) timerMinutes--;
+    if (timerSeconds === 0 && timerMinutes === 0) {
+        stopTimer();
+        restartTimer();
+    } else if (timerSeconds === 59) timerMinutes--;
     else if (timerSeconds === 0) timerSeconds = SECONDS;
     formatTimer();
 }
@@ -57,8 +55,6 @@ function formatTimer() {
 
 function stopTimer() {
     clearInterval(updateTimer);
-    formatTimer();
-
     startIconTimer.innerText = "play_circle_outline";
     timeHeading.classList.remove("running");
 }
