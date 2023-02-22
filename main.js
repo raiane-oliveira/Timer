@@ -1,79 +1,70 @@
 const MINUTES = 25,
-      SECONDS = 60
+    SECONDS = 60;
 
-let timerMinutes = MINUTES, 
+let timerMinutes = MINUTES,
     timerSeconds = SECONDS,
-    updateTimer, 
-    timeFormated = ''
+    updateTimer;
 
-const timeHeading = document.querySelector("#time")
-const startTimerButton = document.querySelector(".start-timer-button")
-const resetTimerButton = document.querySelector(".reset-timer-button")
-const iconStartTimer = document.querySelector(".start-icon")
+const timeHeading = document.querySelector("#time");
+const startTimerButton = document.querySelector(".start-timer-button");
+const resetTimerButton = document.querySelector(".reset-timer-button");
+const startIconTimer = document.querySelector(".start-icon");
 
 startTimerButton.addEventListener("click", () => {
     if (timerMinutes === 0 && timerSeconds === 0) {
-        restartTimer()
+        restartTimer();
     }
 
-    timeHeading.classList.toggle("running")
-    iconStartTimer.innerText = "stop"
-    
-    if (!timeHeading.className.includes("running")) {
-        stopTimer()
+    timeHeading.classList.toggle("running");
+    startIconTimer.innerText = "stop";
+
+    if (timeHeading.className.includes("running")) {
+        decreaseTimer();
+        updateTimer = setInterval(decreaseTimer, 1000);
     } else {
-        decreaseTimer()
-        updateTimer = setInterval(decreaseTimer, 1000)
+        stopTimer();
     }
-
-})
+});
 
 resetTimerButton.addEventListener("click", () => {
-    stopTimer()
-    timeHeading.innerHTML = `${MINUTES}:00`
-    restartTimer()
-})
+    stopTimer();
+    timeHeading.innerHTML = `${MINUTES}:00`;
+    restartTimer();
+});
 
 function decreaseTimer() {
-    timerSeconds--
+    timerSeconds--;
 
-    if (timerSeconds === 0 & timerMinutes === 0) {
-        stopTimer()
-    } else if (timerSeconds === 59) {
-        timerMinutes--
-    } else if (timerSeconds === 0) {
-        timerMinutes--
-        timerSeconds = 59;
-        timeFormated = ""
-    }
-    formatTimer()
+    if (timerSeconds === 0 && timerMinutes === 0) stopTimer();
+    else if (timerSeconds === 59) timerMinutes--;
+    else if (timerSeconds === 0) timerSeconds = SECONDS;
+    formatTimer();
 }
 
 function formatTimer() {
-    let minutesHasOnlyOneDigit = timerMinutes < 10
-    if (minutesHasOnlyOneDigit) {
-        timeFormated = `0${timerMinutes}:${timerSeconds}`
-    }
+    let stringMinutes, stringSeconds;
 
-    let secondsHasOnlyOneDigit = timerSeconds < 10
-    if (secondsHasOnlyOneDigit) {
-        timeFormated = !minutesHasOnlyOneDigit
-                       ? `${timerMinutes}:0${timerSeconds}` 
-                       : `0${timerMinutes}:0${timerSeconds}`
-    }
-    timeHeading.innerHTML = timeFormated ? timeFormated : `${timerMinutes}:${timerSeconds}`
+    let minutesHasOnlyOneDigit = timerMinutes < 10;
+    stringMinutes = minutesHasOnlyOneDigit ? `0${timerMinutes}` : timerMinutes;
+
+    let secondsHasOnlyOneDigit = timerSeconds < 10;
+    let isSeconds60 = timerSeconds === SECONDS;
+    stringSeconds = secondsHasOnlyOneDigit ? `0${timerSeconds}` : timerSeconds;
+    stringSeconds = isSeconds60 ? "00" : stringSeconds;
+
+    timeHeading.innerHTML = `${stringMinutes}:${stringSeconds}`;
 }
 
 function stopTimer() {
-    clearInterval(updateTimer)
-    formatTimer()
+    clearInterval(updateTimer);
+    formatTimer();
 
-    iconStartTimer.innerText = "play_circle_outline"
-    timeHeading.classList.remove("running")
+    startIconTimer.innerText = "play_circle_outline";
+    timeHeading.classList.remove("running");
 }
 
 function restartTimer() {
-    timerMinutes = MINUTES
-    timerSeconds = SECONDS
-    timeFormated = ''
+    timerMinutes = MINUTES;
+    timerSeconds = SECONDS;
+    timeFormated = "";
 }
