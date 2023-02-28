@@ -13,7 +13,7 @@ Para os ícones e fontes, utilizei a API do Google: `Google Fonts`.
 -   HTML
 -   CSS
 
-## Aprendizados
+## 📒 Aprendizados
 
 -   Intervalos JS
 -   Como a assincronia funciona com intervalos JavaScript
