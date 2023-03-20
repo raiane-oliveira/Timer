@@ -47,14 +47,10 @@ function decreaseTimer() {
 }
 
 function formatTimer() {
-    let stringMinutes, stringSeconds;
+    let stringMinutes = timerMinutes.toString().padStart(2, "0"),
+        stringSeconds = timerSeconds.toString().padStart(2, "0");
 
-    let minutesHasOnlyOneDigit = timerMinutes < 10;
-    stringMinutes = minutesHasOnlyOneDigit ? `0${timerMinutes}` : timerMinutes;
-
-    let secondsHasOnlyOneDigit = timerSeconds < 10;
     let isSeconds60 = timerSeconds === SECONDS;
-    stringSeconds = secondsHasOnlyOneDigit ? `0${timerSeconds}` : timerSeconds;
     stringSeconds = isSeconds60 ? "00" : stringSeconds;
 
     timeHeading.innerHTML = `${stringMinutes}:${stringSeconds}`;
