@@ -1,6 +1,6 @@
 # Timer
 
-Um temporizador de 25 minutos feito para testar Intervalos do JavaScript.
+Um temporizador de 25 minutos feito para testar Intervalos do JavaScript, podendo controlá-lo pelo teclado.
 
 ![image](https://user-images.githubusercontent.com/100815627/217922350-e5540d04-08ab-466e-bc1a-f8442137ddb9.png)
 
@@ -13,7 +13,7 @@ Para os ícones e fontes, utilizei a API do Google: `Google Fonts`.
 -   HTML
 -   CSS
 
-## Aprendizados
+## 📒 Aprendizados
 
 -   Intervalos JS
 -   Como a assincronia funciona com intervalos JavaScript
